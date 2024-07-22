@@ -1,0 +1,35 @@
+.directorDetails {
+    margin-top: 50px !important;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group1 {
+    margin-bottom: 15px;
+    margin-left: 100px;
+}
+
+.text-danger {
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+
+.topic {
+    text-align: left;
+    margin-top: 100px;
+}
+
+.contentfields{
+    margin-top: 30px;
+}
+
+.btn{
+    margin-left: 100px;
+    margin-top: 20px;
+}
