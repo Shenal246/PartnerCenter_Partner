@@ -1,0 +1,60 @@
+.navbar-container {
+    position: relative;
+    width: 80px; /* Default width showing only icons */
+    transition: width 0.3s;
+}
+
+.navbar-container:hover {
+    width: 280px; /* Expanded width showing icons and text */
+}
+
+.vertical-navbar {
+    height: 100vh;
+    overflow: hidden;
+    transition: width 0.3s;
+}
+
+.vertical-navbar .nav-link {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vertical-navbar .nav-link .nav-text {
+    display: none;
+}
+
+.navbar-container:hover .vertical-navbar .nav-link .nav-text {
+    display: inline;
+    margin-left: 20px; /* Space between icon and text */
+}
+
+.UserProfile{
+    margin-left: 20px;
+}
+
+.navbar-container:hover .vertical-navbar .nav-link .bi {
+    padding-right: 10px;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.nav-link.active {
+    background-color: #007bff;
+    color: white !important;
+}
+
+.nav-link {
+    color: #000;
+}
+
+.nav-link:hover {
+    background-color: #e9ecef;
+}
+.bi{
+    font-size:25px;
+}
