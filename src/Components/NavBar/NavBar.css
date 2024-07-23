@@ -2,13 +2,15 @@
     position: relative;
     width: 80px;
     /* Default width showing only icons */
+    width: 80px; 
     transition: width 0.3s;
+    /* display: block; */
     position: fixed;
+    z-index: 100;
 }
 
 .navbar-container:hover {
-    width: 280px;
-    /* Expanded width showing icons and text */
+    width: 280px; 
 }
 
 .vertical-navbar {

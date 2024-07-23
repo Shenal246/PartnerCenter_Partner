@@ -1,5 +1,5 @@
 .directorDetails {
-    margin-top: 50px !important;
+    /* margin-top: 50px !important; */
 }
 
 h2 {
@@ -37,6 +37,9 @@ h2 {
 .btn-group{
     margin-left: 20px;
     width: 100px ;
-    
+}
+
+.heading{
+    margin-left: 100px;
 }
 
