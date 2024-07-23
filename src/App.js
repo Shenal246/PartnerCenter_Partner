@@ -3,7 +3,7 @@ import './App.css';
 // import LoginPage from './Components/LoginPage/LoginPage';
 import PromotionsPage from './Components/Promotions/Promotions';
 import BecomePartner from './Components/BecomePartner/BecomePartner';
-// import LoginPage from './Components/LoginPage/LoginPage';
+import LoginPage from './Components/LoginPage/LoginPage';
 import VerticalNavbar from './Components/NavBar/NavBar';
 import Dashboard from './Components/Dashboard/Dahboard';
 import React from 'react';
