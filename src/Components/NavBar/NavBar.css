@@ -4,6 +4,7 @@
     transition: width 0.3s;
     /* display: block; */
     position: fixed;
+    z-index: 100;
 }
 
 .navbar-container:hover {

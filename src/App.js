@@ -2,7 +2,7 @@ import './App.css';
 // import BecomePartner from './Components/BecomePartner/BecomePartner';
 // import LoginPage from './Components/LoginPage/LoginPage';
 import PromotionsPage from './Components/Promotions/Promotions';
-// import BecomePartner from './Components/BecomePartner/BecomePartner';
+import BecomePartner from './Components/BecomePartner/BecomePartner';
 // import LoginPage from './Components/LoginPage/LoginPage';
 import VerticalNavbar from './Components/NavBar/NavBar';
 import Dashboard from './Components/Dashboard/Dahboard';
@@ -16,7 +16,7 @@ function App() {
 
       {/* <LoginPage /> */}
       {/* <BecomePartner/> */}
-      <PromotionsPage/>
+      {/* <PromotionsPage/> */}
       {/* <VerticalNavbar/> */}
       <HomePage/>
       {/* <Dashboard/>   */}
