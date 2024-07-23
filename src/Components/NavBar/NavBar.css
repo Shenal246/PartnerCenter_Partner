@@ -1,12 +1,14 @@
 .navbar-container {
     position: relative;
-    width: 80px; /* Default width showing only icons */
+    width: 80px;
+    /* Default width showing only icons */
     transition: width 0.3s;
     position: fixed;
 }
 
 .navbar-container:hover {
-    width: 280px; /* Expanded width showing icons and text */
+    width: 280px;
+    /* Expanded width showing icons and text */
 }
 
 .vertical-navbar {
@@ -29,10 +31,11 @@
 
 .navbar-container:hover .vertical-navbar .nav-link .nav-text {
     display: inline;
-    margin-left: 20px; /* Space between icon and text */
+    margin-left: 20px;
+    /* Space between icon and text */
 }
 
-.UserProfile{
+.UserProfile {
     margin-left: 20px;
 }
 
@@ -56,6 +59,7 @@
 .nav-link:hover {
     background-color: #e9ecef;
 }
-.bi{
-    font-size:25px;
+
+.bi {
+    font-size: 25px;
 }
