@@ -1,5 +1,5 @@
 import React from 'react';
-import CompanyLogo from '../../images/ConnexIT.png';
+import CompanyLogo from '../../images/LoginPage/ConnexIT.png';
 import UserIcon from '../../images/User-Icon.jpg';
 import './NavBar.css';
 
@@ -11,10 +11,10 @@ const VerticalNavbar = () => {
                 <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     {/* <span className="fs-4">Brand</span> */}
                     <div className='row'>
-                    <img src={CompanyLogo} alt="Connex Logo" className='companylogo' />
+                        <img src={CompanyLogo} alt="Connex Logo" className='companylogo' />
                     </div>
                 </a>
-                <hr/>
+                <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
                     <li className="nav-item">
                         <a href="#" className="nav-link active" aria-current="page">

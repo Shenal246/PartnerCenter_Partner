@@ -3,6 +3,7 @@ import React from 'react'
 import Imagesd from '../../images/Promotions/123.jpg';
 import topimg from '../../images/Promotions/swit1.jpg';
 import Slider from "react-slick";
+import VerticalNavbar from '../NavBar/NavBar';
 
 function Promotions() {
     const settings = {
@@ -16,7 +17,9 @@ function Promotions() {
         cssEase: "linear"
     };
     return (
-        <div className='container'>
+        <div>
+            <VerticalNavbar/>
+            <div className='container'>
             {/* Top Row */}
             <div className='row'>
                 <h1 className='promotionHeading'>Promotions</h1>
@@ -140,6 +143,7 @@ function Promotions() {
                     </Slider>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

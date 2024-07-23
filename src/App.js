@@ -10,10 +10,11 @@ import React from 'react';
 function App() {
   return (
     <div className="App">
+      
+
       {/* <LoginPage /> */}
       {/* <BecomePartner/> */}
       <PromotionsPage/>
-      <VerticalNavbar/>
     </div>
   );
 }
