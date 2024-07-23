@@ -1,0 +1,44 @@
+.logbutton {
+  margin-left: 2vh;
+  margin-right: 2vh;
+}
+
+.toprow {
+  height: 15vh;
+}
+
+.logintopic {
+  margin-bottom: 8vh;
+}
+
+.back {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+}
+
+.loginLogo {
+  width: 60%;
+  z-index: 10 !important;
+}
+
+.companylogo {
+  width: 30vh;
+  height: auto;
+}
+
+.toprow {
+  text-align: right;
+}
+
+.rightCol {
+  margin-top: 10vh;
+}
