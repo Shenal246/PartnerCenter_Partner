@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './BecomePartner.css';
+import VerticalNavbar from '../NavBar/NavBar';
 
 const schema = yup.object().shape({
     firstName: yup.string().required("First Name is required"),
@@ -54,7 +55,10 @@ const BecomePartner = () => {
     };
 
     return (
-        <div className="container mt-5 mb-5">
+        <div className="become-partner-container d-flex">
+      <VerticalNavbar />
+      
+        <div className="container mt-5">
             <div className='row topic'>
                 <h2>Become a Partner</h2>
             </div>
@@ -150,7 +154,7 @@ const BecomePartner = () => {
                     <div className='col-md-4 directorDetails'>
                         <div className='row'>
                             <div className="form-group1">
-                                <div className='row topic'>
+                                <div className='row topic1'>
                                     <h2>Director Details</h2>
                                 </div>
 
@@ -181,6 +185,7 @@ const BecomePartner = () => {
                     </div>
                 </div>
             </form>
+        </div>
         </div>
     );
 }

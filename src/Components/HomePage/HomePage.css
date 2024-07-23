@@ -1,0 +1,14 @@
+.vCards {
+    margin-left: 20px;
+    margin-top: 60px;
+}
+
+/* Custom class to increase the width of the card image */
+.custom-card-img {
+    width: 100%; /* Ensures the image takes the full width of the card */
+}
+
+.Roww{
+    margin-top: 40px;
+
+}
