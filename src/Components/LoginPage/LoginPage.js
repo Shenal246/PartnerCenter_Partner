@@ -1,9 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import './LoginPage.css';
-import backgroundImage from '../../images/loginback.png';
-import LoginLogo from '../../images/loginLogo.png';
-import CompanyLogo from '../../images/ConnexIT.png';
+import backgroundImage from '../../images/LoginPage/LoginBack.png';
+import LoginLogo from '../../images/LoginPage/loginLogo.png';
+import CompanyLogo from '../../images/LoginPage/ConnexIT.png';
 
 function LoginPage() {
   // const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -42,7 +42,7 @@ function LoginPage() {
               <input
                 id="username"
                 type="text"
-                {...register('id', { required: 'ID is required' })}
+                {...register('id', { required: 'Username is required' })}
                 className="form-control"
               />
               {errors.id && <span className="error">{errors.id.message}</span>}
@@ -54,10 +54,10 @@ function LoginPage() {
                 type="password"
                 {...register('password', {
                   required: 'Password is required',
-                  pattern: {
-                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                    message: 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character'
-                  }
+                  // pattern: {
+                  //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                  //   message: 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character'
+                  // }
                 })}
                 className="form-control"
               />

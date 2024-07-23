@@ -13,7 +13,7 @@
 
 .back {
   position: absolute;
-  width: 50%;
+  width: 60%;
   height: 100%;
   top: 0;
   left: 0;
@@ -28,6 +28,7 @@
 .loginLogo {
   width: 60%;
   z-index: 10 !important;
+  margin-left: 0 !important;
 }
 
 .companylogo {
@@ -41,4 +42,9 @@
 
 .rightCol {
   margin-top: 10vh !important;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
 }

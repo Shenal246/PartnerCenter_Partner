@@ -1,0 +1,52 @@
+.image-container {
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+}
+
+.swiperContainer {
+    text-align: center !important;
+}
+
+.carousel-item {
+    border-radius: 15px;
+}
+
+.sliderButtonContainer {
+    text-align: left;
+    position: absolute;
+    display: flex;
+    top: 69%;
+    /* Adjust this value to position the buttons vertically */
+    left: 10%;
+    gap: 10px;
+}
+
+.sliderImage {
+    display: block;
+    border-radius: 15px !important;
+}
+
+.singleSlider {
+    position: relative;
+}
+
+.promotionHeading {
+    text-align: center;
+}
+
+.topSellingCards {
+    width: 28vh !important;
+    background-color: rgb(247, 247, 247);
+    border-radius: 15px;
+}
+
+.topSellingTitle {
+    text-align: center;
+    padding: 1.5vh;
+}
+
+.topSellingImage {
+    margin-top: 1.5vh !important;
+    border-radius: 15px;
+}
