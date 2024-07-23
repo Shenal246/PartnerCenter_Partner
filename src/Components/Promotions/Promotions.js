@@ -18,7 +18,7 @@ function Promotions() {
     };
     return (
         <div>
-            <VerticalNavbar />
+            <VerticalNavbar activeLinkId="promotions" />
             <div className='container'>
                 {/* Top Row */}
                 <div className='row'>

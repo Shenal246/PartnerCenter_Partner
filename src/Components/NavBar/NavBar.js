@@ -3,41 +3,44 @@ import CompanyLogo from '../../images/LoginPage/ConnexIT.png';
 import UserIcon from '../../images/User-Icon.jpg';
 import './NavBar.css';
 
-
-const VerticalNavbar = () => {
+const VerticalNavbar = ({ activeLinkId }) => {
     return (
         <div className="navbar-container">
             <div className="vertical-navbar d-flex flex-column flex-shrink-0 p-3 bg-light">
                 <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    {/* <span className="fs-4">Brand</span> */}
                     <div className='row'>
                         <img src={CompanyLogo} alt="Connex Logo" className='companylogo' />
                     </div>
                 </a>
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
-                    <li className="nav-item">
-                        <a href="#" className="nav-link active" aria-current="page">
+                    <li>
+                        <a href="/" id="home" className={`nav-link text-dark ${activeLinkId === 'home' ? 'active' : ''}`}>
                             <i className="bi bi-house-door"></i> <span className="nav-text">Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-dark">
+                        <a href="#" id="dashboard" className={`nav-link text-dark ${activeLinkId === 'dashboard' ? 'active' : ''}`}>
                             <i className="bi bi-speedometer2"></i> <span className="nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-dark">
+                        <a href="#" id="orders" className={`nav-link text-dark ${activeLinkId === 'orders' ? 'active' : ''}`}>
                             <i className="bi bi-cart"></i> <span className="nav-text">Orders</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-dark">
+                        <a href="#" id="products" className={`nav-link text-dark ${activeLinkId === 'products' ? 'active' : ''}`}>
                             <i className="bi bi-box-seam"></i> <span className="nav-text">Products</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-dark">
+                        <a href="/Promotions" id="promotions" className={`nav-link text-dark ${activeLinkId === 'promotions' ? 'active' : ''}`}>
+                        <i class="bi bi-tags"></i><span className="nav-text">Promotions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="customers" className={`nav-link text-dark ${activeLinkId === 'customers' ? 'active' : ''}`}>
                             <i className="bi bi-people"></i> <span className="nav-text">Customers</span>
                         </a>
                     </li>

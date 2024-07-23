@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 import backgroundImage from '../../images/LoginPage/LoginBack.png';
 import LoginLogo from '../../images/LoginPage/loginLogo.png';
@@ -8,12 +9,16 @@ import CompanyLogo from '../../images/LoginPage/ConnexIT.png';
 function LoginPage() {
   // const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = data => {
     console.log(data);
   };
 
   // const password = watch('password');
+  const handleBecomeAPartnerClick = () => {
+    navigate('/BecomeAPartner');
+  };
 
   return (
 
@@ -65,7 +70,7 @@ function LoginPage() {
             </div>
             <div className="button-container">
               <button type="submit" className="btn btn-success logbutton">Log in</button>
-              <button type="button" className="btn btn-warning">Become a Partner</button>
+              <button type="button" onClick={handleBecomeAPartnerClick} className="btn btn-warning">Become a Partner</button>
             </div>
           </form>
 
