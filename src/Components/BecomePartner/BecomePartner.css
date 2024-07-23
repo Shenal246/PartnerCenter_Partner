@@ -29,7 +29,14 @@ h2 {
     margin-top: 30px;
 }
 
-.btn{
-    margin-left: 100px;
+.btton{
+    margin-left: 200px;
     margin-top: 20px;
 }
+
+.btn-group{
+    margin-left: 20px;
+    width: 100px ;
+    
+}
+

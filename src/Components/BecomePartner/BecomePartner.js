@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -9,7 +9,7 @@ import './BecomePartner.css';
 const schema = yup.object().shape({
     firstName: yup.string().required("First Name is required"),
     lastName: yup.string().required("Last Name is required"),
-    mobile: yup.string().required("Mobile is required"),
+    mobile: yup.string().required("Mobile is required").matches(/^\d{10}$/, "Mobile must be a 10-digit number"),
     email: yup.string().email("Invalid email").required("Email is required"),
     brNumber: yup.string().required("BR Number is required"),
     vatNumber: yup.string().required("VAT Number is required"),
@@ -18,19 +18,25 @@ const schema = yup.object().shape({
     department: yup.string().required("Department is required"),
     nic: yup.string().required("NIC is required"),
     designation: yup.string().required("Designation is required"),
-    whatsappBusiness: yup.string().required("Whatsapp Business is required"),
+    whatsappBusiness: yup.string().required("Whatsapp Business is required").matches(/^\d{10}$/, "Whatsapp Business must be a 10-digit number"),
     directorName: yup.string().required("Director Name is required"),
     directorId: yup.string().required("Director ID is required"),
     directorEmail: yup.string().email("Invalid email").required("Director Email is required"),
-    directorMobile: yup.string().required("Director Mobile is required"),
+    directorMobile: yup.string().required("Director Mobile is required").matches(/^\d{10}$/, "Director Mobile must be a 10-digit number"),
     brCertificate: yup.mixed().required("BR Certificate is required"),
     vatCertificate: yup.mixed().required("VAT Certificate is required"),
 });
 
 const BecomePartner = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const [selectedCountry, setSelectedCountry] = useState('');
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
+
+    const handleSelect = (country) => {
+        setSelectedCountry(country);
+        setValue('country', country, { shouldValidate: true });
+    };
 
     const onSubmit = data => {
         const formData = new FormData();
@@ -50,7 +56,7 @@ const BecomePartner = () => {
     return (
         <div className="container mt-5">
             <div className='row topic'>
-                <h2 >Become a Partner</h2>
+                <h2>Become a Partner</h2>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -81,24 +87,29 @@ const BecomePartner = () => {
                             <input type="text" {...register('address')} className="form-control" />
                             {errors.address && <p className="text-danger">{errors.address.message}</p>}
                         </div>
-                        <div className="form-group">
-                            <label>Select Country</label>
-                            <select {...register('country')} className="form-control">
-                                <option value="">Select Country</option>
-                                <option value="USA">USA</option>
-                                <option value="Canada">Canada</option>
-                                <option value="UK">UK</option>
-                                {/* Add more countries as needed */}
-                            </select>
-                            {errors.country && <p className="text-danger">{errors.country.message}</p>}
-                        </div>
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label>Department</label>
                             <input type="text" {...register('department')} className="form-control" />
                             {errors.department && <p className="text-danger">{errors.department.message}</p>}
+                        </div> */}
+                        <div className="form-group">
+                            <label className='select-country'>Select Country</label>
+                            <div className="btn-group">
+                                <button type="button" className="btn btn-secondary dropdown-toggle mt-2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {selectedCountry || 'Select Country'}
+                                </button>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="#" onClick={() => handleSelect('Sri Lanka')}>Sri Lanka</a></li>
+                                    <li><a className="dropdown-item" href="#" onClick={() => handleSelect('Cambodia')}>Cambodia</a></li>
+                                    <li><a className="dropdown-item" href="#" onClick={() => handleSelect('Thailand')}>Thailand</a></li>
+                                    <li><a className="dropdown-item" href="#" onClick={() => handleSelect('Maldives')}>Maldives</a></li>
+                                </ul>
+                            </div>
+                            {errors.country && <p className="text-danger">{errors.country.message}</p>}
                         </div>
+                        
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 clmn2">
                         <div className="form-group">
                             <label>Last Name</label>
                             <input type="text" {...register('lastName')} className="form-control" />
@@ -137,7 +148,7 @@ const BecomePartner = () => {
                     </div>
 
                     <div className='col-md-4 directorDetails'>
-                        <div className='row' >
+                        <div className='row'>
                             <div className="form-group1">
                                 <div className='row topic'>
                                     <h2>Director Details</h2>
@@ -164,17 +175,11 @@ const BecomePartner = () => {
                             </div>
                         </div>
 
-                        <div className='row btn'>
+                        <div className='row btton'>
                             <button type="submit" className="btn btn-primary mt-3">Submit</button>
                         </div>
                     </div>
-
-
                 </div>
-
-
-
-
             </form>
         </div>
     );
