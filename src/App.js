@@ -9,6 +9,9 @@ import VerticalNavbar from './Components/NavBar/NavBar';
 import Dashboard from './Components/Dashboard/Dahboard';
 import React from 'react';
 import HomePage from './Components/HomePage/HomePage';
+import VideosPage from './Components/Videos/VideosPage';
+import DealRegistration from './Components/DealRegistration/DealRegistration';
+import Products from './Components/Products/Products';
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
           <Route path="/BecomeAPartner" exact element={<BecomePartner />} />
           <Route path="/Login" exact element={<LoginPage />} />
           <Route path="/Promotions" exact element={<PromotionsPage />} />
+          <Route path="/Videos" exact element={<VideosPage />} />
+          <Route path="/dealregistration" exact element={<DealRegistration />} />
+          <Route path="/Products" exact element={<Products />} />
         </Routes>
       </Router>
     </>

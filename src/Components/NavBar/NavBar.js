@@ -7,11 +7,9 @@ const VerticalNavbar = ({ activeLinkId }) => {
     return (
         <div className="navbar-container">
             <div className="vertical-navbar d-flex flex-column flex-shrink-0 p-3 bg-light">
-                <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <div className='row'>
-                        <img src={CompanyLogo} alt="Connex Logo" className='companylogo' />
-                    </div>
-                </a>
+                <div className='row'>
+                    <img src={CompanyLogo} alt="Connex Logo" className='companylogo' />
+                </div>
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
                     <li>
@@ -19,31 +17,41 @@ const VerticalNavbar = ({ activeLinkId }) => {
                             <i className="bi bi-house-door"></i> <span className="nav-text">Home</span>
                         </a>
                     </li>
-                    <li>
+                    {/* <li>
                         <a href="#" id="dashboard" className={`nav-link text-dark ${activeLinkId === 'dashboard' ? 'active' : ''}`}>
                             <i className="bi bi-speedometer2"></i> <span className="nav-text">Dashboard</span>
                         </a>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                         <a href="#" id="orders" className={`nav-link text-dark ${activeLinkId === 'orders' ? 'active' : ''}`}>
                             <i className="bi bi-cart"></i> <span className="nav-text">Orders</span>
                         </a>
-                    </li>
+                    </li> */}
                     <li>
-                        <a href="#" id="products" className={`nav-link text-dark ${activeLinkId === 'products' ? 'active' : ''}`}>
+                        <a href="/Products" id="products" className={`nav-link text-dark ${activeLinkId === 'products' ? 'active' : ''}`}>
                             <i className="bi bi-box-seam"></i> <span className="nav-text">Products</span>
                         </a>
                     </li>
                     <li>
                         <a href="/Promotions" id="promotions" className={`nav-link text-dark ${activeLinkId === 'promotions' ? 'active' : ''}`}>
-                        <i class="bi bi-tags"></i><span className="nav-text">Promotions</span>
+                            <i class="bi bi-tags"></i><span className="nav-text">Promotions</span>
                         </a>
                     </li>
                     <li>
+                        <a href="/dealregistration" id="dealregistration" className={`nav-link text-dark ${activeLinkId === 'dealregistration' ? 'active' : ''}`}>
+                            <i class="bi bi-r-square"></i><span className="nav-text">Deal Registration</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Videos" id="video" className={`nav-link text-dark ${activeLinkId === 'video' ? 'active' : ''}`}>
+                            <i class="bi bi-camera-video"></i> <span className="nav-text">Video</span>
+                        </a>
+                    </li>
+                    {/* <li>
                         <a href="#" id="customers" className={`nav-link text-dark ${activeLinkId === 'customers' ? 'active' : ''}`}>
                             <i className="bi bi-people"></i> <span className="nav-text">Customers</span>
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
                 <hr />
                 <div className="dropdown">
