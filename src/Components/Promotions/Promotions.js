@@ -31,7 +31,7 @@ function Promotions() {
                     <div className='col-6'>
                         <div className="input-group flex-nowrap">
                             <span className="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Search Promotions" aria-label="Username" aria-describedby="addon-wrapping" />
+                            <input type="text" class="form-control" placeholder="Search Promotions" aria-label="Search Promotions" aria-describedby="addon-wrapping" />
                         </div>
                     </div>
                     <div className='col-3'></div>

@@ -1,0 +1,33 @@
+.productsHeading {
+    text-align: center;
+    margin-top: 4vh;
+}
+
+.productsCard {
+    width: 250px;
+    background-color: rgb(240, 239, 239);
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.productsCardRow {
+    gap: 20px;
+}
+
+.productImage {
+    border-radius: 15px;
+}
+
+.productsCardTopic {
+    text-align: center;
+}
+
+.productButtonRow {
+    text-align: right;
+}
+
+.productCardButton{
+    margin-left: 10px;
+}

@@ -1,6 +1,8 @@
 .vCards {
     margin-left: 20px;
     margin-top: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
 }
 
 /* Custom class to increase the width of the card image */
@@ -11,4 +13,9 @@
 .Roww{
     margin-top: 40px;
 
+}
+
+.videosPageHeading {
+    text-align: center;
+    margin-top: 4vh;
 }
