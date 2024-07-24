@@ -13,8 +13,8 @@ function HomePage() {
             <div className="container">
 
                 <div className='row'>
-                    <div className='col-3'></div>
-                    <div className='col-9'>
+                    <div className='col-2'></div>
+                    <div className='col-10'>
                         <div class="card UserCardBody mb-3" style={{ width: '90vh' }}>
                             <div class="row g-0">
                                 <div class="col-md-4">
