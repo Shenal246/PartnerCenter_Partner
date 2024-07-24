@@ -48,16 +48,12 @@ function HomePage() {
 
                 </div>
 
-
-
-
-
                 {/* second row  */}
 
                 <div className='row'>
-                    <div className='col-2'></div>
-                    <div className='col-8'>
-                        <div className='swiperContainer mt-4'>
+                    <div className='col-1'></div>
+                    <div className='col-10'>
+                        <div className='HomeswiperContainer mt-4'>
                             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -67,9 +63,9 @@ function HomePage() {
                                 <div className="carousel-inner">
 
                                     <div className="carousel-item active" data-bs-interval="2000">
-                                        <div className='singleSlider'>
-                                            <img src={Imagesd} className="d-block w-100 sliderImage" alt="..." />
-                                            <div className='sliderButtonContainer'>
+                                        <div className='HomesingleSlider'>
+                                            <img src={Imagesd} className="d-block w-100 HomesliderImage" alt="..." />
+                                            <div className='HomesliderButtonContainer'>
                                                 <button className='btn btn-info'>Check Product</button>
                                                 <button className='btn btn-info'>Request</button>
                                             </div>
@@ -77,9 +73,9 @@ function HomePage() {
                                     </div>
 
                                     <div className="carousel-item" data-bs-interval="2000">
-                                        <div className='singleSlider'>
-                                            <img src={Imagesd} className="d-block w-100 sliderImage" alt="..." />
-                                            <div className='sliderButtonContainer'>
+                                        <div className='HomesingleSlider'>
+                                            <img src={Imagesd} className="d-block w-100 HomesliderImage" alt="..." />
+                                            <div className='HomesliderButtonContainer'>
                                                 <button className='btn btn-info'>Check Product</button>
                                                 <button className='btn btn-info'>Request</button>
                                             </div>
@@ -87,9 +83,9 @@ function HomePage() {
                                     </div>
 
                                     <div className="carousel-item" data-bs-interval="2000">
-                                        <div className='singleSlider'>
-                                            <img src={Imagesd} class="d-block w-100 sliderImage" alt="..." />
-                                            <div className='sliderButtonContainer'>
+                                        <div className='HomesingleSlider'>
+                                            <img src={Imagesd} class="d-block w-100 HomesliderImage" alt="..." />
+                                            <div className='HomesliderButtonContainer'>
                                                 <button className='btn btn-info'>Check Product</button>
                                                 <button className='btn btn-info'>Request</button>
                                             </div>
@@ -110,7 +106,7 @@ function HomePage() {
 
 
                     </div>
-                    <div className='col-2'></div>
+                    <div className='col-1'></div>
 
                 </div>
 

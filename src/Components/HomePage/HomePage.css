@@ -61,3 +61,31 @@
 .profile-button:hover {
     background-color: #0056b3;
 }
+
+
+/* Swiper css */
+
+.HomeswiperContainer {
+    text-align: center !important;
+}
+
+.HomesliderButtonContainer {
+    text-align: left;
+    position: absolute;
+    display: flex;
+    top: 69%;
+    /* Adjust this value to position the buttons vertically */
+    left: 10%;
+    gap: 10px;
+}
+
+
+.HomesliderImage {
+    display: block;
+    border-radius: 15px !important;
+}
+
+.HomesingleSlider {
+    position: relative;
+}
+
