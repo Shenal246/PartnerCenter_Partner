@@ -28,8 +28,9 @@
     margin-top: 60px;
 }
 
-.card-content {
+.homeText  {
     text-align: center;
+    margin-top: 10px;
 }
 
 .profile-card {
