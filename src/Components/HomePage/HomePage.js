@@ -3,9 +3,26 @@ import './HomePage.css';
 import VerticalNavbar from '../NavBar/NavBar';
 import crdImg from '../../images/User-Icon.jpg'
 import Imagesd from '../../images/Promotions/123.jpg';
+import topimg from '../../images/Promotions/swit1.jpg';
+import Slider from "react-slick";
 
 
 function HomePage() {
+
+    const handleShow = () => setShowModal(true);
+    const [showModal, setShowModal] = useState(false);
+
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 2500,
+        autoplaySpeed: 2500,
+        cssEase: "linear"
+    };
 
     return (
         <>
@@ -28,10 +45,10 @@ function HomePage() {
                         <div className="card HomeCard1">
                             <div className="card-content profile-card">
                                 <div className='col-5'>
-                                    <img src={crdImg} alt="Profile" className="profile-img"  />
+                                    <img src={crdImg} alt="Profile" className="profile-img" />
                                 </div>
 
-                        
+
                                 <div class="col-md-7">
                                     <div class="card-body HomeCardBody">
                                         <div className="profile-info">
@@ -108,6 +125,87 @@ function HomePage() {
                     </div>
                     <div className='col-1'></div>
 
+                </div>
+
+                {/* Third Row */}
+                <div className='row mt-5'>
+                    <h3>Videos</h3>
+                    <div className="slider-container">
+                        <Slider {...settings}>
+                            <div className=''>
+                                <div className="card HomevCards" style={{ width: '60vh' }}>
+                                    <div className="card-img-top Homecustom-card-img" style={{ height: '30vh', cursor: 'pointer' }} onClick={handleShow}>
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src={'https://www.youtube.com/embed/waCkrUIlSTo?si=mKCyZR4NfEOzZNS6'}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            title="YouTube video"
+                                        ></iframe>
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">Card title</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="card HomevCards" style={{ width: '60vh' }}>
+                                    <div className="card-img-top Homecustom-card-img" style={{ height: '30vh', cursor: 'pointer' }} onClick={handleShow}>
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src={'https://www.youtube.com/embed/waCkrUIlSTo?si=mKCyZR4NfEOzZNS6'}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            title="YouTube video"
+                                        ></iframe>
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">Card title</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="card HomevCards" style={{ width: '60vh' }}>
+                                    <div className="card-img-top Homecustom-card-img" style={{ height: '30vh', cursor: 'pointer' }} onClick={handleShow}>
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src={'https://www.youtube.com/embed/waCkrUIlSTo?si=mKCyZR4NfEOzZNS6'}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            title="YouTube video"
+                                        ></iframe>
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">Card title</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="card HomevCards" style={{ width: '60vh' }}>
+                                    <div className="card-img-top Homecustom-card-img" style={{ height: '30vh', cursor: 'pointer' }} onClick={handleShow}>
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src={'https://www.youtube.com/embed/waCkrUIlSTo?si=mKCyZR4NfEOzZNS6'}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            title="YouTube video"
+                                        ></iframe>
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">Card title</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </Slider>
+                    </div>
                 </div>
 
 

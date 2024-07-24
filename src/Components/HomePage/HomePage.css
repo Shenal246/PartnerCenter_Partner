@@ -10,10 +10,10 @@
     margin-left: 20px;
 }
 
-.rowFirst{
+.rowFirst {
     display: flex;
     justify-content: space-around;
-    margin: 20px;    
+    margin: 20px;
 }
 
 .HomeCard1 {
@@ -24,7 +24,7 @@
     width: 45%;
 }
 
-.rowFirst{
+.rowFirst {
     margin-top: 60px;
 }
 
@@ -89,3 +89,16 @@
     position: relative;
 }
 
+.HomevCards {
+    margin-left: 200px !important;
+    margin-right: 200px !important;
+    /* margin-top: 30px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    padding: 10px;
+}
+
+/* Custom class to increase the width of the card image */
+.Homecustom-card-img {
+    width: 100%;
+    /* Ensures the image takes the full width of the card */
+}

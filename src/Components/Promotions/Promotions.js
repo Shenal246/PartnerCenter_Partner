@@ -93,7 +93,7 @@ function Promotions() {
                         </div>
                     </div>
                     <div className='col-2'></div>
-                </div>
+                </div> 
 
                 {/* Third Row */}
                 <div className='row mt-5'>
