@@ -49,7 +49,7 @@ function Products() {
                             <p className='productsCardModelNo'>Model No: TRD0001</p>
                         </div>
                         <div className='productButtonRow'>
-                            <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button>
+                            {/* <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button> */}
                             <button className='btn btn-info productCardButton'>Request Product</button>
                         </div>
                     </div>
@@ -64,7 +64,7 @@ function Products() {
                             <p className='productsCardModelNo'>Model No: TRD0001</p>
                         </div>
                         <div className='productButtonRow'>
-                            <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button>
+                            {/* <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button> */}
                             <button className='btn btn-info productCardButton'>Request Product</button>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ function Products() {
                             <p className='productsCardModelNo'>Model No: TRD0001</p>
                         </div>
                         <div className='productButtonRow'>
-                            <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button>
+                            {/* <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button> */}
                             <button className='btn btn-info productCardButton'>Request Product</button>
                         </div>
                     </div>
@@ -94,7 +94,7 @@ function Products() {
                             <p className='productsCardModelNo'>Model No: TRD0001</p>
                         </div>
                         <div className='productButtonRow'>
-                            <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button>
+                            {/* <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button> */}
                             <button className='btn btn-info productCardButton'>Request Product</button>
                         </div>
                     </div>
@@ -109,19 +109,19 @@ function Products() {
                             <p className='productsCardModelNo'>Model No: TRD0001</p>
                         </div>
                         <div className='productButtonRow'>
-                            <button className='btn btn-warning productCardButton' onClick={handleShow}>View</button>
+                            {/* <button className='btn btn-warning productCardButton'>View</button> */}
                             <button className='btn btn-info productCardButton'>Request Product</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Modal show={show} onHide={handleClose}>
+            {/* <Modal show={show} onHide={handleClose} size="xl">
                 <Modal.Header closeButton>
                     <Modal.Title>Trendnet (TRD0001)</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    
+
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="warning" onClick={handleClose}>
@@ -131,7 +131,7 @@ function Products() {
                     Request Product
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
 
         </>
     )

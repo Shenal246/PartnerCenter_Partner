@@ -1,40 +1,32 @@
 /* DealRegistration.css */
 .DealRegWhiteCard {
-    width: 80%;
-    /* height: 30vh; */
     border-radius: 15px;
-    background-color: rgba(165, 224, 234, 0.527);
-    padding: 30px; /* Added padding for internal spacing */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility */
-
-}
-
-.DealRegbackgroundCards {
-    margin-left: 34vh;
-    margin-top: 10vh;
+    background-color: rgba(196, 230, 236, 0.527);
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 5vh;
 }
 
 .DealHeading {
     text-align: center;
 }
 
-.DealCard1Data .card {
+.DealCard1Data {
     border: none;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     /* padding: 20px; */
-    background-color: #fff; /* Ensuring card has a white background */
+    background-color: #fff;
+    /* Ensuring card has a white background */
     height: 200px;
- 
+    width: 200px;
+    margin-right: 10px;
 
 }
 
 .DealCard1Data .card-body {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    align-items: center;
     margin-top: 40px;
+    text-align: center;
 }
 
 .DealCard1Data .card-title {
@@ -47,4 +39,49 @@
     font-weight: bold;
 }
 
+.dealprogressCard {
+    width: 200px;
+    /* height: 200px; */
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
 
+}
+
+.dealProgressHeadingRow {
+    text-align: center;
+}
+
+.dealprogressCardRow {
+    padding: 10px;
+}
+
+.cardFirstCol {
+    border-right: 2px solid rgb(194, 193, 193);
+    text-align: center;
+    justify-content: center;
+}
+
+.cardSecondCol {
+    padding-left: 40px;
+}
+
+.DealRegImage {
+    width: 60%;
+}
+
+.dealTableCard {
+    padding: 10px;
+    background-color: rgba(196, 230, 236, 0.527);
+    border-radius: 15px;
+}
+
+.putDealButton {
+    width: 200px;
+}
+
+.dealbuttonRow {
+    text-align: right !important;
+}
