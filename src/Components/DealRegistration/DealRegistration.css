@@ -46,5 +46,21 @@
     font-size: 2.5rem;
     font-weight: bold;
 }
+.DealReqBtn{
+    text-align: center;
+    margin-top: 25px;
+}
 
+.DealProDropDown{
+    margin-top: 25px;
+    width: 200px;
+    padding: 7px;
+    
+}
 
+.rowTopic{
+    margin-top: 40px;
+}
+.modal{
+    margin-left: 10px;
+}
