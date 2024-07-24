@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import axios from 'axios';
 import VerticalNavbar from '../NavBar/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './DealRegistration.css';
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import DealRegImage from '../../images/DealRegistration/deal.jpg';
+
+const schema = yup.object().shape({
+  projectName: yup.string().required("Project Name is required"),
+  companyName: yup.string().required("Company Name is required"),
+  contactNumber: yup.string().required("Contact Number is required").matches(/^\d{10}$/, "Contact Number must be a 10-digit number"),
+  designation: yup.string().required("Designation is required"),
+  email: yup.string().email("Invalid email").required("Email is required"),
+  opportunityProjectName: yup.string().required("Opportunity Project Name is required"),
+  selectProducts: yup.string().required("Select Products is required"),
+  closeTimeline: yup.string().required("Close Timeline is required"),
+  budget: yup.string().required("Budget is required"),
+  type: yup.string().required("Type is required")
+});
 
 function DealRegistration() {
   const percentage = 75; // Example percentage
