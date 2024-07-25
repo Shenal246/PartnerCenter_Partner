@@ -57,6 +57,7 @@
     color: white;
     padding: 10px 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .profile-button:hover {

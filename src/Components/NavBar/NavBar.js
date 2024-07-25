@@ -47,9 +47,9 @@ const VerticalNavbar = ({ activeLinkId }) => {
                     </a>
                     <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
                         <li>
-                            <Link to="/UserProfile" className="dropdown-item">Profile</Link> {/* Update this to use Link */}
+                            <Link to="/UserProfile" className="dropdown-item">Profile</Link> 
                         </li>
-                        <li><a className="dropdown-item" href="#">Settings</a></li>
+                        {/* <li><a className="dropdown-item" href="#">Settings</a></li> */}
                         <li><a className="dropdown-item" href="#">Sign out</a></li>
                     </ul>
                 </div>
