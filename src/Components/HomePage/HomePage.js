@@ -33,7 +33,7 @@ function HomePage() {
                 <div className='row '>
                     <div className="cards-container rowFirst">
                         <div className="card HomeCard1">
-                            <div className="card-content">
+                            <div className="card-content homeText">
                                 <h2>Welcome to Connex Partner Portal</h2>
                                 <h3>Enhance Your Business with Connex</h3>
                                 <p>
