@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import CompanyLogo from '../../images/LoginPage/ConnexIT.png';
 import UserIcon from '../../images/User-Icon.jpg';
 import './NavBar.css';
@@ -13,45 +14,30 @@ const VerticalNavbar = ({ activeLinkId }) => {
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
                     <li>
-                        <a href="/" id="home" className={`nav-link text-dark ${activeLinkId === 'home' ? 'active' : ''}`}>
+                        <Link to="/" id="home" className={`nav-link text-dark ${activeLinkId === 'home' ? 'active' : ''}`}>
                             <i className="bi bi-house-door"></i> <span className="nav-text">Home</span>
-                        </a>
+                        </Link>
                     </li>
-                    {/* <li>
-                        <a href="#" id="dashboard" className={`nav-link text-dark ${activeLinkId === 'dashboard' ? 'active' : ''}`}>
-                            <i className="bi bi-speedometer2"></i> <span className="nav-text">Dashboard</span>
-                        </a>
-                    </li> */}
-                    {/* <li>
-                        <a href="#" id="orders" className={`nav-link text-dark ${activeLinkId === 'orders' ? 'active' : ''}`}>
-                            <i className="bi bi-cart"></i> <span className="nav-text">Orders</span>
-                        </a>
-                    </li> */}
                     <li>
-                        <a href="/Products" id="products" className={`nav-link text-dark ${activeLinkId === 'products' ? 'active' : ''}`}>
+                        <Link to="/Products" id="products" className={`nav-link text-dark ${activeLinkId === 'products' ? 'active' : ''}`}>
                             <i className="bi bi-box-seam"></i> <span className="nav-text">Products</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/Promotions" id="promotions" className={`nav-link text-dark ${activeLinkId === 'promotions' ? 'active' : ''}`}>
+                        <Link to="/Promotions" id="promotions" className={`nav-link text-dark ${activeLinkId === 'promotions' ? 'active' : ''}`}>
                             <i class="bi bi-tags"></i><span className="nav-text">Promotions</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/dealregistration" id="dealregistration" className={`nav-link text-dark ${activeLinkId === 'dealregistration' ? 'active' : ''}`}>
+                        <Link to="/dealregistration" id="dealregistration" className={`nav-link text-dark ${activeLinkId === 'dealregistration' ? 'active' : ''}`}>
                             <i class="bi bi-r-square"></i><span className="nav-text">Deal Registration</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/Videos" id="video" className={`nav-link text-dark ${activeLinkId === 'video' ? 'active' : ''}`}>
+                        <Link to="/Videos" id="video" className={`nav-link text-dark ${activeLinkId === 'video' ? 'active' : ''}`}>
                             <i class="bi bi-camera-video"></i> <span className="nav-text">Video</span>
-                        </a>
+                        </Link>
                     </li>
-                    {/* <li>
-                        <a href="#" id="customers" className={`nav-link text-dark ${activeLinkId === 'customers' ? 'active' : ''}`}>
-                            <i className="bi bi-people"></i> <span className="nav-text">Customers</span>
-                        </a>
-                    </li> */}
                 </ul>
                 <hr />
                 <div className="dropdown">
@@ -60,8 +46,10 @@ const VerticalNavbar = ({ activeLinkId }) => {
                         <strong className='UserProfile'>User</strong>
                     </a>
                     <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a className="dropdown-item" href="#">Profile</a></li>
-                        <li><a className="dropdown-item" href="#">Settings</a></li>
+                        <li>
+                            <Link to="/UserProfile" className="dropdown-item">Profile</Link> 
+                        </li>
+                        {/* <li><a className="dropdown-item" href="#">Settings</a></li> */}
                         <li><a className="dropdown-item" href="#">Sign out</a></li>
                     </ul>
                 </div>

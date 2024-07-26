@@ -6,6 +6,8 @@ import Imagesd from '../../images/Promotions/123.jpg';
 import topimg from '../../images/Promotions/swit1.jpg';
 import Slider from "react-slick";
 
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+
 
 function HomePage() {
 
@@ -55,7 +57,8 @@ function HomePage() {
                                             <p><strong>A.D C Sirisena</strong></p>
                                             <p>Admin - CAX Solutions</p>
                                             <p>ID-xxxxxxx</p>
-                                            <button className="profile-button">Profile</button>
+                                            <Link to="/UserProfile"className="profile-button"> Profile</Link>
+                                          
                                         </div>
                                     </div>
                                 </div>
