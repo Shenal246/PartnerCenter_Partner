@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from './Components/LoginPage/LoginPage';
 import PromotionsPage from './Components/Promotions/Promotions';
-import BecomePartner from './Components/BecomePartner/BecomePartner';
+// import BecomePartner from './Components/BecomePartner/BecomePartner';
 import VerticalNavbar from './Components/NavBar/NavBar';
 import Dashboard from './Components/Dashboard/Dahboard';
 import HomePage from './Components/HomePage/HomePage';
@@ -28,8 +28,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" exact element={<HomePage />} />
-          <Route path="/BecomeAPartner" exact element={<BecomePartner />} />
-          <Route path="/BecomeArPartner" exact element={<BecomeAPartner />} />
+          {/* <Route path="/BecomeArPartner" exact element={<BecomePartner />} /> */}
+          <Route path="/BecomeAPartner" exact element={<BecomeAPartner />} />
           <Route path="/Login" exact element={<LoginPage />} />
           <Route path="/Promotions" exact element={<PromotionsPage />} />
           <Route path="/Videos" exact element={<VideosPage />} />

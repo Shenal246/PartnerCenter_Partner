@@ -5,6 +5,7 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import './BecomePartner.css';
+import BecomeComLogo from '../../images/LoginPage/ConnexIT.png';
 
 const steps = ['Personal Information', 'Company Information', 'Director Information'];
 
@@ -197,36 +198,40 @@ const BecomeAPartner = () => {
   };
 
   return (
-    <Container>
-      <Box sx={{ width: '100%', marginTop: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Become a Partner
-        </Typography>
-        <Stepper activeStep={activeStep} alternativeLabel>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-        <FormProvider {...methods}>
-          <Box sx={{ p: 3 }}>
-            {renderStepContent(activeStep)}
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
-              <Button disabled={activeStep === 0} onClick={handleBack} variant="outlined">Back</Button>
-              <Button onClick={handleNext} variant="contained" color="primary">
-                {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
-              </Button>
-            </Box>
-            {isSubmitting && (
-              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-                <CircularProgress />
+    <>
+      <Container>
+      <img src={BecomeComLogo} alt='comLogo' className='BecomePageLogo'/>
+
+        <Box sx={{ width: '100%', marginTop: 4 }}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Become a Partner
+          </Typography>
+          <Stepper activeStep={activeStep} alternativeLabel>
+            {steps.map((label) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+          <FormProvider {...methods}>
+            <Box sx={{ p: 3 }}>
+              {renderStepContent(activeStep)}
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
+                <Button disabled={activeStep === 0} onClick={handleBack} variant="outlined">Back</Button>
+                <Button onClick={handleNext} variant="contained" color="primary">
+                  {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
+                </Button>
               </Box>
-            )}
-          </Box>
-        </FormProvider>
-      </Box>
-    </Container>
+              {isSubmitting && (
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                  <CircularProgress />
+                </Box>
+              )}
+            </Box>
+          </FormProvider>
+        </Box>
+      </Container>
+    </>
   );
 };
 
