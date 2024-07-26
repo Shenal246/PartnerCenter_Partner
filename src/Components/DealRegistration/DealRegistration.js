@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller, FormProvider, useFormContext } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { Container, Box, TextField, Button, Typography, Stepper, Step, StepLabel, CircularProgress, Grid, MenuItem } from '@mui/material';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
+import * as Yup from 'yup';
 import axios from 'axios';
 import VerticalNavbar from '../NavBar/NavBar';
 import './DealRegistration.css';
@@ -10,56 +12,192 @@ import 'react-circular-progressbar/dist/styles.css';
 import Swal from 'sweetalert2'; // Import SweetAlert2
 import DealRegImage from '../../images/DealRegistration/deal.jpg';
 
-const schema = yup.object().shape({
-  projectName: yup.string().required("Project Name is required"),
-  companyName: yup.string().required("Company Name is required"),
-  contactNumber: yup.string().required("Contact Number is required").matches(/^\d{10}$/, "Contact Number must be a 10-digit number"),
-  designation: yup.string().required("Designation is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
-  opportunityProjectName: yup.string().required("Opportunity Project Name is required"),
-  selectProducts: yup.string().required("Select Products is required"),
-  closeTimeline: yup.string().required("Close Timeline is required"),
-  budget: yup.string().required("Budget is required"),
-  type: yup.string().required("Type is required")
-});
+const steps = ['Opportunity', 'Product Section', 'Remarks'];
+
+const validationSchema = [
+  Yup.object({
+    projectName: Yup.string().required('Project Name is required'),
+    companyName: Yup.string().required('Company Name is required'),
+    contactNumber: Yup.string().required('Contact Number is required').matches(/^\d{10}$/, 'Contact Number must be 10 digits'),
+    designation: Yup.string().required('Designation is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+  }),
+  Yup.object({
+    selectProducts: Yup.string().required('Select Products is required'),
+    closeTimeline: Yup.string().required('Close Timeline is required'),
+    budget: Yup.string().required('Budget is required'),
+    type: Yup.string().required('Type is required'),
+  }),
+  Yup.object({
+    specialRequest: Yup.string(),
+  }),
+];
+
+const FormField = ({ name, label, type = 'text', options = [] }) => {
+  const { control } = useFormContext();
+  return (
+    <Grid item xs={12} md={6}>
+      <Controller
+        name={name}
+        control={control}
+        render={({ field, fieldState }) => (
+          type === 'select' ? (
+            <TextField
+              select
+              {...field}
+              label={label}
+              variant="outlined"
+              fullWidth
+              margin="dense"
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message}
+              sx={{ height: 45 }}
+            >
+              {options.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          ) : (
+            <TextField
+              {...field}
+              label={label}
+              type={type}
+              variant="outlined"
+              fullWidth
+              margin="dense"
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message}
+              sx={{ height: 45 }}
+            />
+          )
+        )}
+      />
+    </Grid>
+  );
+};
+
+const Opportunity = () => (
+  <Grid container spacing={2}>
+    <FormField name="projectName" label="Project Name" />
+    <FormField name="companyName" label="Company Name" />
+    <FormField name="contactNumber" label="Contact Number" />
+    <FormField name="designation" label="Designation" />
+    <FormField name="email" label="Email" />
+  </Grid>
+);
+
+const ProductSection = () => {
+  const productOptions = [
+    { value: 'product1', label: 'Product 1' },
+    { value: 'product2', label: 'Product 2' },
+    // Add more products as needed
+  ];
+
+  const typeOptions = [
+    { value: 'type1', label: 'New Deal' },
+    { value: 'type2', label: 'Renewal' },
+    // Add more types as needed
+  ];
+
+  return (
+    <Grid container spacing={2}>
+      <FormField name="selectProducts" label="Select Products" type="select" options={productOptions} />
+      <FormField name="closeTimeline" label="Close Timeline" />
+      <FormField name="budget" label="Budget" />
+      <FormField name="type" label="Type" type="select" options={typeOptions} />
+    </Grid>
+  );
+};
+
+const Remarks = () => (
+  <Grid container spacing={2}>
+    <FormField name="specialRequest" label="Special Request" />
+  </Grid>
+);
 
 function DealRegistration() {
   const percentage = 75; // Example percentage
   const percentage123 = 45; // Example percentage
 
   const [showModal, setShowModal] = useState(false);
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
-    resolver: yupResolver(schema)
-  });
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
 
-  const handleSelectProduct = (product) => {
-    setValue('selectProducts', product, { shouldValidate: true });
+  const [activeStep, setActiveStep] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const methods = useForm({
+    resolver: yupResolver(validationSchema[activeStep]),
+    mode: 'onBlur',
+    defaultValues: {
+      projectName: '',
+      companyName: '',
+      contactNumber: '',
+      designation: '',
+      email: '',
+      selectProducts: '',
+      closeTimeline: '',
+      budget: '',
+      type: '',
+      specialRequest: '',
+    },
+  });
+
+  const { trigger, handleSubmit, setError } = methods;
+
+  const handleNext = async () => {
+    const valid = await trigger();
+    if (valid) {
+      if (activeStep === steps.length - 1) {
+        setIsSubmitting(true);
+        // Submit logic here
+        methods.handleSubmit(onSubmit)();
+      } else {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      }
+    }
   };
 
-  const onSubmit = data => {
-    axios.post('/api/deal-registration', data)
-      .then(response => {
-        Swal.fire({
-          // position: "top-end",
-          icon: "success",
-          title: "Your work has been saved",
-          showConfirmButton: false,
-          timer: 1500
-        });
-        handleCloseModal();
-      })
-      .catch(error => {
-        Swal.fire({
-          // position: "top-end",
-          icon: "error",
-          title: "Error submitting form",
-          showConfirmButton: false,
-          timer: 1500
-        });
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post('/api/deal-registration', data);
+      Swal.fire({
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500,
       });
+      setIsSubmitting(false);
+      handleCloseModal(); // Close the modal on successful submission
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error submitting form',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setIsSubmitting(false);
+    }
+  };
+
+  const renderStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return <Opportunity />;
+      case 1:
+        return <ProductSection />;
+      case 2:
+        return <Remarks />;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -68,14 +206,12 @@ function DealRegistration() {
 
       <div className='container'>
         {/* Top Row */}
-
         <div className='row'>
           <h1 className='DealHeading mt-5'>Deal Registration</h1>
         </div>
 
         <div className='DealRegWhiteCard'>
           <div className='row'>
-
             <div className='col-5 cardFirstCol'>
               <h4>- Deal Registration -</h4>
               <p>Sample text that describes deal registration.</p>
@@ -84,7 +220,6 @@ function DealRegistration() {
 
             <div className='col-7 cardSecondCol'>
               <div className='row'>
-
                 <div className='card DealCard1Data'>
                   <div className='card-body text-center'>
                     <h6 className='card-title'>Total Approvals</h6>
@@ -105,9 +240,6 @@ function DealRegistration() {
                         trailColor: '#ff5757',
                         // Path transition
                         pathTransitionDuration: 0.15,
-                        // Customize the path
-                        // pathTransition: 'none',
-                        // Customize the trail
                       })}
                     />
                   </div>
@@ -128,9 +260,6 @@ function DealRegistration() {
                         trailColor: '#ff5757',
                         // Path transition
                         pathTransitionDuration: 0.15,
-                        // Customize the path
-                        // pathTransition: 'none',
-                        // Customize the trail
                       })}
                     />
                   </div>
@@ -139,14 +268,12 @@ function DealRegistration() {
                     <h5><span className='BlueText'>Win</span>/<span className='RedText'>Lost</span></h5>
                   </div>
                 </div>
-
               </div>
               <div className='row dealbuttonRow'>
                 <button className='btn btn-info mt-3 putDealButton' onClick={handleShowModal}>Register a Deal</button>
               </div>
             </div>
           </div>
-
         </div>
 
         <div className='row mt-5'>
@@ -195,112 +322,53 @@ function DealRegistration() {
         <div className={`modal fade ${showModal ? 'show' : ''}`} style={{ display: showModal ? 'block' : 'none' }}>
           <div className="modal-dialog modal-xl">
             <div className="modal-content">
-
               {/* Modal Header */}
               <div className="modal-header">
-                <h4 className="modal-title">Request Form</h4>
+                <h4 className="modal-title">Deal Registration</h4>
               </div>
 
               {/* Modal Body */}
               <div className="modal-body">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <label htmlFor="projectName "><h6>Project Name</h6></label>
-                      <input type="text" className="form-control" id="projectName" {...register('projectName')} placeholder="Project Name" />
-                      {errors.projectName && <div className="text-danger">{errors.projectName.message}</div>}
-                    </div>
-                  </div>
+                <Container>
 
-                  <h6 className='rowTopic'>Customer Details</h6>
+                  <Stepper activeStep={activeStep} alternativeLabel>
+                    {steps.map((label) => (
+                      <Step key={label}>
+                        <StepLabel>{label}</StepLabel>
+                      </Step>
+                    ))}
+                  </Stepper>
+                  <FormProvider {...methods}>
+                    <Box sx={{ p: 3 }}>
+                      {renderStepContent(activeStep)}
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
+                        <Button disabled={activeStep === 0} onClick={handleBack} variant="outlined">
+                          Back
+                        </Button>
+                        <Button onClick={handleNext} variant="contained" color="primary">
+                          {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
+                        </Button>
+                      </Box>
+                      {isSubmitting && (
+                        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                          <CircularProgress />
+                        </Box>
+                      )}
+                    </Box>
+                  </FormProvider>
+                </Container>
+              </div>
 
-                  <div className="row">
-                    <div className="form-group col-6">
-                      <label htmlFor="companyName">Company Name</label>
-                      <input type="text" className="form-control" id="companyName" {...register('companyName')} placeholder="Company Name" />
-                      {errors.companyName && <div className="text-danger">{errors.companyName.message}</div>}
-                    </div>
-                    <div className="form-group col-6">
-                      <label htmlFor="contactNumber">Contact Number</label>
-                      <input type="text" className="form-control" id="contactNumber" {...register('contactNumber')} placeholder="Contact Number" />
-                      {errors.contactNumber && <div className="text-danger">{errors.contactNumber.message}</div>}
-                    </div>
-                    <div className="form-group col-6">
-                      <label htmlFor="designation">Designation</label>
-                      <input type="text" className="form-control" id="designation" {...register('designation')} placeholder="Designation" />
-                      {errors.designation && <div className="text-danger">{errors.designation.message}</div>}
-                    </div>
-                    <div className="form-group col-6">
-                      <label htmlFor="email">Email</label>
-                      <input type="email" className="form-control" id="email" {...register('email')} placeholder="Email" />
-                      {errors.email && <div className="text-danger">{errors.email.message}</div>}
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <label htmlFor="specialRequest">Special Request</label>
-                      <textarea className="form-control" id="specialRequest" {...register('specialRequest')} rows="4"></textarea>
-                    </div>
-                  </div>
-
-                  <h6 className='rowTopic'>Opportunity</h6>
-
-                  <div className="row">
-                    <div className="form-group col-md-6">
-                      <label htmlFor="opportunityProjectName"> Project Name</label>
-                      <input type="text" className="form-control" id="opportunityProjectName" {...register('opportunityProjectName')} placeholder=" Project Name" />
-                      {errors.opportunityProjectName && <div className="text-danger">{errors.opportunityProjectName.message}</div>}
-                    </div>
-                    <div className="form-group col-6 ">
-                      <select className="form-select form-select-sm DealProDropDown" aria-label="Large select example" {...register('selectProducts')}>
-                        <option value="">Select Products</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      {errors.selectProducts && <div className="text-danger">{errors.selectProducts.message}</div>}
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="form-group col-6">
-                      <label htmlFor="closeTimeline">Close Timeline</label>
-                      <input type="text" className="form-control" id="closeTimeline" {...register('closeTimeline')} placeholder="Close Timeline" />
-                      {errors.closeTimeline && <div className="text-danger">{errors.closeTimeline.message}</div>}
-                    </div>
-                    <div className="form-group col-6">
-                      <label htmlFor="budget">Budget</label>
-                      <input type="text" className="form-control" id="budget" {...register('budget')} placeholder="Budget" />
-                      {errors.budget && <div className="text-danger">{errors.budget.message}</div>}
-                    </div>
-                  </div>
-
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <label htmlFor="type">Type</label>
-                      <select id="type" className="form-control" {...register('type')}>
-                        <option value="">Choose...</option>
-                        <option value="Type1">New Bussines </option>
-                        <option value="Type2">Renival </option>
-                        {/* Add more options as needed */}
-                      </select>
-                      {errors.type && <div className="text-danger">{errors.type.message}</div>}
-                    </div>
-                  </div>
-
-                  <div className="modal-footer">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
-                  </div>
-                </form>
+              {/* Modal Footer */}
+              <div className="modal-footer">
+                <Button onClick={handleCloseModal} variant="outlined">
+                  Close
+                </Button>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-
     </>
   );
 }
