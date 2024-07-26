@@ -10,6 +10,7 @@ import VideosPage from './Components/Videos/VideosPage';
 import DealRegistration from './Components/DealRegistration/DealRegistration';
 import Products from './Components/Products/Products';
 import UserProfile from './Components/UserProfile/UserProfile';
+import BecomeAPartner from './Components/BecomePartner/BecomeAPartner';
 
 function App() {
   return (
@@ -25,10 +26,10 @@ function App() {
       </div>
 
       <Router>
-        <VerticalNavbar /> {/* Add VerticalNavbar here so it shows on all pages */}
         <Routes>
           <Route path="/" exact element={<HomePage />} />
           <Route path="/BecomeAPartner" exact element={<BecomePartner />} />
+          <Route path="/BecomeArPartner" exact element={<BecomeAPartner />} />
           <Route path="/Login" exact element={<LoginPage />} />
           <Route path="/Promotions" exact element={<PromotionsPage />} />
           <Route path="/Videos" exact element={<VideosPage />} />
