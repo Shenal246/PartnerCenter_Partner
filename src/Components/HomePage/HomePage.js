@@ -19,8 +19,8 @@ function HomePage() {
         slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 2500,
-        autoplaySpeed: 2500,
+        speed: 4500,
+        // autoplaySpeed: 2500,
         cssEase: "linear"
     };
 

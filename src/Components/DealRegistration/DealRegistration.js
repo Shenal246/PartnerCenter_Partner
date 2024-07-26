@@ -139,12 +139,13 @@ function DealRegistration() {
         <div className='row mt-5'>
           <div className='dealTableCard'>
             <h4 className='mt-2'>Deals Summery</h4>
-            <table class="table">
+            <table class="table table-success table-striped">
               <thead>
                 <tr>
+                  <th scope="col">Id</th>
                   <th scope="col">Project Name</th>
-                  <th scope="col">Customer Name</th>
-                  <th scope="col">Status (Approved / Pending)</th>
+                  <th scope="col">Company Name</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Aging</th>
                   <th scope="col">Amount</th>
                   <th scope="col">Deal Status</th>
@@ -154,21 +155,23 @@ function DealRegistration() {
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
+                  <td>Sample Project name</td>
+                  <td>ABC PVT(LTD)</td>
+                  <td><span className='statusAproved'>Approved</span></td>
+                  <td>2 yrs</td>
+                  <td>Rs 250,000</td>
+                  <td><span className='statusAproved'>Approved</span></td>
+                  <td>Samantha Perera</td>
                 </tr>
                 <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
+                <th scope="row">2</th>
+                  <td>Sample Project name</td>
+                  <td>Apple Asia PVT(LTD)</td>
+                  <td><span className='statusRegected'>Rejected</span></td>
+                  <td>2 yrs</td>
+                  <td>Rs 250,000</td>
+                  <td><span className='statusPending'>Pending</span></td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>

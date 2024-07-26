@@ -85,3 +85,27 @@
 .dealbuttonRow {
     text-align: right !important;
 }
+
+.statusAproved {
+    color: rgb(13, 190, 13);
+    padding: 2px 10px 2px 10px;
+    border: 2px solid rgb(43, 199, 43);
+    border-radius: 25px;
+    font-weight: bolder;
+}
+
+.statusPending {
+    color: rgb(199, 181, 20);
+    padding: 2px 10px 2px 10px;
+    border: 2px solid rgb(199, 181, 20);
+    border-radius: 25px;
+    font-weight: bolder;
+}
+
+.statusRegected {
+    color: rgb(207, 54, 15);
+    padding: 2px 10px 2px 10px;
+    border: 2px solid rgb(207, 54, 15);
+    border-radius: 25px;
+    font-weight: bolder;
+}
