@@ -7,6 +7,7 @@ import VerticalNavbar from '../NavBar/NavBar';
 import './DealRegistration.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import Swal from 'sweetalert2'; // Import SweetAlert2
 import DealRegImage from '../../images/DealRegistration/deal.jpg';
 
 const schema = yup.object().shape({
@@ -41,11 +42,23 @@ function DealRegistration() {
   const onSubmit = data => {
     axios.post('/api/deal-registration', data)
       .then(response => {
-        alert("Form submitted successfully");
+        Swal.fire({
+          // position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
         handleCloseModal();
       })
       .catch(error => {
-        alert("Error submitting form");
+        Swal.fire({
+          // position: "top-end",
+          icon: "error",
+          title: "Error submitting form",
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
   };
 
@@ -139,7 +152,7 @@ function DealRegistration() {
         <div className='row mt-5'>
           <div className='dealTableCard'>
             <h4 className='mt-2'>Deals Summery</h4>
-            <table class="table table-success table-striped">
+            <table className="table table-success table-striped">
               <thead>
                 <tr>
                   <th scope="col">Id</th>
@@ -240,13 +253,12 @@ function DealRegistration() {
                       {errors.opportunityProjectName && <div className="text-danger">{errors.opportunityProjectName.message}</div>}
                     </div>
                     <div className="form-group col-6 ">
-                      <select class="form-select form-select-sm DealProDropDown" aria-label="Large select example">
-                        <option selected>Select Products</option>
+                      <select className="form-select form-select-sm DealProDropDown" aria-label="Large select example" {...register('selectProducts')}>
+                        <option value="">Select Products</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-
                       {errors.selectProducts && <div className="text-danger">{errors.selectProducts.message}</div>}
                     </div>
                   </div>

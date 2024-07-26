@@ -1,9 +1,10 @@
 import './Promotions.css';
-import React from 'react'
+import React from 'react';
 import Imagesd from '../../images/Promotions/123.jpg';
 import topimg from '../../images/Promotions/swit1.jpg';
 import Slider from "react-slick";
 import VerticalNavbar from '../NavBar/NavBar';
+import Swal from 'sweetalert2';
 
 function Promotions() {
     const settings = {
@@ -16,6 +17,23 @@ function Promotions() {
         autoplaySpeed: 2500,
         cssEase: "linear"
     };
+
+    const handleRequestClick = () => {
+        Swal.fire({
+            title: "Do you want to confirm the Request?",
+            // showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire("Sent!", "", "success");
+            } else if (result.isDenied) {
+              Swal.fire("Changes are not saved", "", "info");
+            }
+          });
+    };
+
     return (
         <div>
             <VerticalNavbar activeLinkId="promotions" />
@@ -30,8 +48,8 @@ function Promotions() {
                     <div className='col-3'></div>
                     <div className='col-6'>
                         <div className="input-group flex-nowrap">
-                            <span className="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Search Promotions" aria-label="Search Promotions" aria-describedby="addon-wrapping" />
+                            <span className="input-group-text" id="addon-wrapping"><i className="bi bi-search"></i></span>
+                            <input type="text" className="form-control" placeholder="Search Promotions" aria-label="Search Promotions" aria-describedby="addon-wrapping" />
                         </div>
                     </div>
                     <div className='col-3'></div>
@@ -43,7 +61,7 @@ function Promotions() {
                     <div className='col-8'>
                         <div className='swiperContainer mt-4'>
                             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
+                                <div className="carousel-indicators">
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -55,7 +73,7 @@ function Promotions() {
                                             <img src={Imagesd} className="d-block w-100 sliderImage" alt="..." />
                                             <div className='sliderButtonContainer'>
                                                 <button className='btn btn-info'>Check Product</button>
-                                                <button className='btn btn-info'>Request</button>
+                                                <button className='btn btn-info' onClick={handleRequestClick}>Request</button>
                                             </div>
                                         </div>
                                     </div>
@@ -65,17 +83,17 @@ function Promotions() {
                                             <img src={Imagesd} className="d-block w-100 sliderImage" alt="..." />
                                             <div className='sliderButtonContainer'>
                                                 <button className='btn btn-info'>Check Product</button>
-                                                <button className='btn btn-info'>Request</button>
+                                                <button className='btn btn-info' onClick={handleRequestClick}>Request</button>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="carousel-item" data-bs-interval="2000">
                                         <div className='singleSlider'>
-                                            <img src={Imagesd} class="d-block w-100 sliderImage" alt="..." />
+                                            <img src={Imagesd} className="d-block w-100 sliderImage" alt="..." />
                                             <div className='sliderButtonContainer'>
                                                 <button className='btn btn-info'>Check Product</button>
-                                                <button className='btn btn-info'>Request</button>
+                                                <button className='btn btn-info' onClick={handleRequestClick}>Request</button>
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +111,7 @@ function Promotions() {
                         </div>
                     </div>
                     <div className='col-2'></div>
-                </div> 
+                </div>
 
                 {/* Third Row */}
                 <div className='row mt-5'>
@@ -145,7 +163,7 @@ function Promotions() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Promotions;

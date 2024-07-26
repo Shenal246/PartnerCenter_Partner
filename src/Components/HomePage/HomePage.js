@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import './HomePage.css';
 import VerticalNavbar from '../NavBar/NavBar';
-import crdImg from '../../images/User-Icon.jpg'
+import crdImg from '../../images/User-Icon.jpg';
 import Imagesd from '../../images/Promotions/123.jpg';
-import topimg from '../../images/Promotions/swit1.jpg';
-import Slider from "react-slick";
-
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-
+import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function HomePage() {
-
     const handleShow = () => setShowModal(true);
     const [showModal, setShowModal] = useState(false);
-
 
     const settings = {
         dots: true,
@@ -22,17 +18,29 @@ function HomePage() {
         slidesToScroll: 1,
         autoplay: true,
         speed: 4500,
-        // autoplaySpeed: 2500,
-        cssEase: "linear"
+        cssEase: 'linear',
+    };
+
+    const handleRequestClick = () => {
+        Swal.fire({
+            title: 'Do you want to confirm the Request?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Sent!', '', 'success');
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info');
+            }
+        });
     };
 
     return (
         <>
             <VerticalNavbar activeLinkId="home" />
             <div className="container">
-
                 {/* First row  */}
-                <div className='row '>
+                <div className="row">
                     <div className="cards-container rowFirst">
                         <div className="card HomeCard1">
                             <div className="card-content homeText">
@@ -46,68 +54,60 @@ function HomePage() {
                         </div>
                         <div className="card HomeCard1">
                             <div className="card-content profile-card">
-                                <div className='col-5'>
+                                <div className="col-5">
                                     <img src={crdImg} alt="Profile" className="profile-img" />
                                 </div>
-
-
-                                <div class="col-md-7">
-                                    <div class="card-body HomeCardBody">
+                                <div className="col-md-7">
+                                    <div className="card-body HomeCardBody">
                                         <div className="profile-info">
                                             <p><strong>A.D C Sirisena</strong></p>
                                             <p>Admin - CAX Solutions</p>
                                             <p>ID-xxxxxxx</p>
-                                            <Link to="/UserProfile"className="profile-button"> Profile</Link>
-                                          
+                                            <Link to="/UserProfile" className="profile-button">Profile</Link>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
-                {/* second row  */}
-
-                <div className='row'>
-                    <div className='col-1'></div>
-                    <div className='col-10'>
-                        <div className='HomeswiperContainer mt-4'>
+                {/* Second row  */}
+                <div className="row">
+                    <div className="col-1"></div>
+                    <div className="col-10">
+                        <div className="HomeswiperContainer mt-4">
                             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
+                                <div className="carousel-indicators">
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                 </div>
                                 <div className="carousel-inner">
-
                                     <div className="carousel-item active" data-bs-interval="2000">
-                                        <div className='HomesingleSlider'>
+                                        <div className="HomesingleSlider">
                                             <img src={Imagesd} className="d-block w-100 HomesliderImage" alt="..." />
-                                            <div className='HomesliderButtonContainer'>
-                                                <button className='btn btn-info'>Check Product</button>
-                                                <button className='btn btn-info'>Request</button>
+                                            <div className="HomesliderButtonContainer">
+                                                <button className="btn btn-info">Check Product</button>
+                                                <button className="btn btn-info" onClick={handleRequestClick}>Request</button>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div className="carousel-item" data-bs-interval="2000">
-                                        <div className='HomesingleSlider'>
+                                        <div className="HomesingleSlider">
                                             <img src={Imagesd} className="d-block w-100 HomesliderImage" alt="..." />
-                                            <div className='HomesliderButtonContainer'>
-                                                <button className='btn btn-info'>Check Product</button>
-                                                <button className='btn btn-info'>Request</button>
+                                            <div className="HomesliderButtonContainer">
+                                                <button className="btn btn-info">Check Product</button>
+                                                <button className="btn btn-info" onClick={handleRequestClick}>Request</button>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div className="carousel-item" data-bs-interval="2000">
-                                        <div className='HomesingleSlider'>
-                                            <img src={Imagesd} class="d-block w-100 HomesliderImage" alt="..." />
-                                            <div className='HomesliderButtonContainer'>
-                                                <button className='btn btn-info'>Check Product</button>
-                                                <button className='btn btn-info'>Request</button>
+                                        <div className="HomesingleSlider">
+                                            <img src={Imagesd} className="d-block w-100 HomesliderImage" alt="..." />
+                                            <div className="HomesliderButtonContainer">
+                                                <button className="btn btn-info">Check Product</button>
+                                                <button className="btn btn-info" onClick={handleRequestClick}>Request</button>
                                             </div>
                                         </div>
                                     </div>
@@ -121,21 +121,17 @@ function HomePage() {
                                     <span className="visually-hidden">Next</span>
                                 </button>
                             </div>
-
                         </div>
-
-
                     </div>
-                    <div className='col-1'></div>
-
+                    <div className="col-1"></div>
                 </div>
 
                 {/* Third Row */}
-                <div className='row mt-5'>
+                <div className="row mt-5">
                     <h3>Videos</h3>
                     <div className="slider-container">
                         <Slider {...settings}>
-                            <div className=''>
+                            <div className="">
                                 <div className="card HomevCards" style={{ width: '60vh' }}>
                                     <div className="card-img-top Homecustom-card-img" style={{ height: '30vh', cursor: 'pointer' }} onClick={handleShow}>
                                         <iframe
@@ -210,9 +206,6 @@ function HomePage() {
                         </Slider>
                     </div>
                 </div>
-
-
-
             </div>
         </>
     );

@@ -1,5 +1,4 @@
-// UserProfile.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './UserProfile.css';
 import UserIcon from '../../images/User-Icon.jpg';
 
@@ -11,6 +10,17 @@ const UserProfile = () => {
     const [dateRegistered, setDateRegistered] = useState('2024-01-01');
     const [designation, setDesignation] = useState('Software Engineer');
     const [profilePic, setProfilePic] = useState(null);
+    const [isModified, setIsModified] = useState(false);
+
+    useEffect(() => {
+        const isFormModified =
+            firstName !== 'Alexander' ||
+            lastName !== 'Neil' ||
+            company !== 'Tech Corp' ||
+            designation !== 'Software Engineer' ||
+            profilePic !== null;
+        setIsModified(isFormModified);
+    }, [firstName, lastName, company, designation, profilePic]);
 
     const handleUpload = (event) => {
         const file = event.target.files[0];
@@ -19,12 +29,18 @@ const UserProfile = () => {
         }
     };
 
+    const handleSave = () => {
+        // Handle save logic here
+        console.log('Profile saved');
+        setIsModified(false);
+    };
+
     return (
         <>
             <div className='container'>
                 <div className='row'>
                     <div className="user-profile">
-                        <h1>Profile </h1>
+                        <h1>Profile</h1>
                         <div className="row Profile-section">
                             <div className="Profile-pic">
                                 {profilePic ? (
@@ -92,7 +108,6 @@ const UserProfile = () => {
                                     id="Profile-date-registered"
                                     value={dateRegistered}
                                     readOnly
-                                    onChange={(e) => setDateRegistered(e.target.value)}
                                     className="form-control"
                                 />
                             </div>
@@ -107,6 +122,20 @@ const UserProfile = () => {
                                 />
                             </div>
                         </div>
+                        {isModified && (
+                            <div className="row Profile-section">
+                                <div className='col-2'>
+                                <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    onClick={handleSave}
+                                >
+                                    Update Profile
+                                </button>
+                                </div>
+                            </div>
+
+                        )}
                     </div>
                 </div>
             </div>
