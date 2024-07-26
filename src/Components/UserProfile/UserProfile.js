@@ -120,6 +120,7 @@ const UserProfile = () => {
                                     id="Profile-designation"
                                     value={designation}
                                     onChange={(e) => setDesignation(e.target.value)}
+                                    readOnly
                                     className="form-control"
                                 />
                             </div>

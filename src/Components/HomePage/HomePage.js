@@ -44,12 +44,8 @@ function HomePage() {
                     <div className="cards-container rowFirst">
                         <div className="card HomeCard1">
                             <div className="card-content homeText">
-                                <h2>Welcome to Connex Partner Portal</h2>
-                                <h3>Enhance Your Business with Connex</h3>
-                                <p>
-                                    Access powerful tools, resources, and support designed to help you succeed.
-                                    Join our community of partners today and unlock new opportunities.
-                                </p>
+                                <h2>Hi ! A.D.C Siricena</h2>
+                                <h3 className=''>Welcome<br/> to <br/>Connex Partner Portal</h3>
                             </div>
                         </div>
                         <div className="card HomeCard1">

@@ -1,7 +1,7 @@
 /* DealRegistration.css */
 .DealRegWhiteCard {
     border-radius: 15px;
-    background-color: rgba(196, 230, 236, 0.527);
+    background-color: rgb(233, 233, 233);
     padding: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 5vh;
@@ -74,7 +74,7 @@
 
 .dealTableCard {
     padding: 10px;
-    background-color: rgba(196, 230, 236, 0.527);
+    background-color: rgb(233, 233, 233);
     border-radius: 15px;
 }
 
@@ -108,4 +108,16 @@
     border: 2px solid rgb(207, 54, 15);
     border-radius: 25px;
     font-weight: bolder;
+}
+
+.BlueText{
+    color: #3b82f6;
+}
+
+.RedText{
+    color: #ff5757;
+}
+
+.LightBlueText{
+    color: #06b6d4;
 }

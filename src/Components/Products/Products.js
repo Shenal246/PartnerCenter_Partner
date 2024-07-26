@@ -22,11 +22,17 @@ function Products() {
                 </div>
 
                 <div className='row mt-3'>
-                    <div className='col-6'></div>
+                    <div className='col-3'></div>
                     <div className='col-3'>
                         <div className="input-group flex-nowrap">
                             <span className="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Search by Products" aria-label="Search Products" aria-describedby="addon-wrapping" />
+                            <input type="text" class="form-control" placeholder="Search by Category" aria-label="Search by Category" aria-describedby="addon-wrapping" />
+                        </div>
+                    </div>
+                    <div className='col-3'>
+                        <div className="input-group flex-nowrap">
+                            <span className="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Search by Model" aria-label="Search by Model" aria-describedby="addon-wrapping" />
                         </div>
                     </div>
                     <div className='col-3'>

@@ -43,18 +43,6 @@ function Promotions() {
                     <h1 className='promotionHeading mt-5'>Promotions</h1>
                 </div>
 
-                {/* First Row */}
-                <div className='row mt-4'>
-                    <div className='col-3'></div>
-                    <div className='col-6'>
-                        <div className="input-group flex-nowrap">
-                            <span className="input-group-text" id="addon-wrapping"><i className="bi bi-search"></i></span>
-                            <input type="text" className="form-control" placeholder="Search Promotions" aria-label="Search Promotions" aria-describedby="addon-wrapping" />
-                        </div>
-                    </div>
-                    <div className='col-3'></div>
-                </div>
-
                 {/* Second Row */}
                 <div className='row'>
                     <div className='col-2'></div>

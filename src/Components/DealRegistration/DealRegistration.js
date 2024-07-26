@@ -112,7 +112,7 @@ function DealRegistration() {
                     />
                   </div>
                   <div className='mt-2 dealProgressHeadingRow'>
-                    <h5>Accept/Pending</h5>
+                    <h5><span className='BlueText'>Accept</span>/<span className='RedText'>Pending</span></h5>
                   </div>
                 </div>
 
@@ -136,13 +136,13 @@ function DealRegistration() {
                   </div>
 
                   <div className='mt-2 dealProgressHeadingRow'>
-                    <h5>Win/Lost</h5>
+                    <h5><span className='BlueText'>Win</span>/<span className='RedText'>Lost</span></h5>
                   </div>
                 </div>
 
               </div>
               <div className='row dealbuttonRow'>
-                <button className='btn btn-info mt-3 putDealButton' onClick={handleShowModal}>Request a Deal</button>
+                <button className='btn btn-info mt-3 putDealButton' onClick={handleShowModal}>Register a Deal</button>
               </div>
             </div>
           </div>
@@ -152,7 +152,7 @@ function DealRegistration() {
         <div className='row mt-5'>
           <div className='dealTableCard'>
             <h4 className='mt-2'>Deals Summery</h4>
-            <table className="table table-success table-striped">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">Id</th>
@@ -177,7 +177,7 @@ function DealRegistration() {
                   <td>Samantha Perera</td>
                 </tr>
                 <tr>
-                <th scope="row">2</th>
+                  <th scope="row">2</th>
                   <td>Sample Project name</td>
                   <td>Apple Asia PVT(LTD)</td>
                   <td><span className='statusRegected'>Rejected</span></td>
@@ -281,8 +281,8 @@ function DealRegistration() {
                       <label htmlFor="type">Type</label>
                       <select id="type" className="form-control" {...register('type')}>
                         <option value="">Choose...</option>
-                        <option value="Type1">Type1</option>
-                        <option value="Type2">Type2</option>
+                        <option value="Type1">New Bussines </option>
+                        <option value="Type2">Renival </option>
                         {/* Add more options as needed */}
                       </select>
                       {errors.type && <div className="text-danger">{errors.type.message}</div>}

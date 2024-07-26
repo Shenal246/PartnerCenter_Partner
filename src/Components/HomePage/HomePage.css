@@ -6,7 +6,7 @@
 }
 
 .HomeCardBody {
-    margin-top: 20px;
+    margin-top: 9px;
     margin-left: 20px;
 }
 
@@ -20,12 +20,12 @@
     background-color: #ebebeb;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 10px;
     width: 45%;
 }
 
 .rowFirst {
-    margin-top: 60px;
+    margin-top: 0px;
 }
 
 .homeText {
@@ -41,8 +41,8 @@
 .profile-img {
     border-radius: 50%;
     margin-right: 20px;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 .profile-info {
