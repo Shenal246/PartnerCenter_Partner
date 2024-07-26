@@ -51,7 +51,7 @@ function VideosPage() {
         <>
             <VerticalNavbar activeLinkId="video" />
             <div className="container">
-                <div className='row'>
+                <div className='row videoFirstRow'>
                     <h1 className='videosPageHeading'>Videos</h1>
                 </div>
 

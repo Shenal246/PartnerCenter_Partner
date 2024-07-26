@@ -142,7 +142,7 @@ function DealRegistration() {
 
               </div>
               <div className='row dealbuttonRow'>
-                <button className='btn btn-info mt-3 putDealButton' onClick={handleShowModal}>Put a Deal</button>
+                <button className='btn btn-info mt-3 putDealButton' onClick={handleShowModal}>Request a Deal</button>
               </div>
             </div>
           </div>

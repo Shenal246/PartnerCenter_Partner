@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './UserProfile.css';
 import UserIcon from '../../images/User-Icon.jpg';
+import VerticalNavbar from '../NavBar/NavBar';
 
 const UserProfile = () => {
     const [firstName, setFirstName] = useState('Alexander');
@@ -37,8 +38,9 @@ const UserProfile = () => {
 
     return (
         <>
+            <VerticalNavbar activeLinkId="" />
             <div className='container'>
-                <div className='row'>
+                <div className='row userprofileFirstRow'>
                     <div className="user-profile">
                         <h1>Profile</h1>
                         <div className="row Profile-section">
@@ -125,13 +127,13 @@ const UserProfile = () => {
                         {isModified && (
                             <div className="row Profile-section">
                                 <div className='col-2'>
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={handleSave}
-                                >
-                                    Update Profile
-                                </button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-primary"
+                                        onClick={handleSave}
+                                    >
+                                        Update Profile
+                                    </button>
                                 </div>
                             </div>
 

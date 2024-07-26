@@ -1,107 +1,112 @@
 /* UserProfile.css */
 
-  
-  .user-profile {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #78f393, #4d42af);
-    padding: 20px;
-    margin-top: 100px;
-    font-size: larger;
-  }
-  
-  .user-profile h1 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
-  
-  .Profile-section {
-    margin-bottom: 20px;
-  }
-  
-  .Profile-section h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #25005a;
-  }
-  
-  .Profile-pic {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .Profile-avatar-placeholder, .Profile-avatar {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2em;
-    color: white;
-    margin-bottom: 10px;
-  }
-  
-  .Profile-avatar {
-    object-fit: cover;
-  }
-  
-  .Profile-upload-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .Profile-upload-button {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    background-color: white;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .Profile-upload-button:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .Profile-form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  
-  .Profile-form-group label {
-    margin-bottom: 5px;
-  }
-  
-  .Profile-form-group input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%;
-  }
-  
-  .Profile-btn {
-    padding: 5px 10px;
-    background-color: #3700b3; 
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .Profile-btn:hover {
-    background-color: #6200ea;
 
-  }
+.user-profile {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #78f393, #4d42af);
+  padding: 20px;
+  margin-top: 100px;
+  font-size: larger;
+}
 
-  .Profile-section1{
-    margin-top: -50px;
-  }
-  
-  /* .Profile-section-btn{
+.user-profile h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.Profile-section {
+  margin-bottom: 20px;
+}
+
+.Profile-section h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #25005a;
+}
+
+.Profile-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Profile-avatar-placeholder,
+.Profile-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.Profile-avatar {
+  object-fit: cover;
+}
+
+.Profile-upload-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.Profile-upload-button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.Profile-upload-button:hover {
+  background-color: #f1f1f1;
+}
+
+.Profile-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.Profile-form-group label {
+  margin-bottom: 5px;
+}
+
+.Profile-form-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.Profile-btn {
+  padding: 5px 10px;
+  background-color: #3700b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Profile-btn:hover {
+  background-color: #6200ea;
+
+}
+
+.Profile-section1 {
+  margin-top: -50px;
+}
+
+/* .Profile-section-btn{
     mar
   } */
+
+.userprofileFirstRow {
+  padding-top: 6vh;
+}

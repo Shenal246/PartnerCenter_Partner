@@ -40,7 +40,7 @@ function HomePage() {
             <VerticalNavbar activeLinkId="home" />
             <div className="container">
                 {/* First row  */}
-                <div className="row">
+                <div className="row homecontainer">
                     <div className="cards-container rowFirst">
                         <div className="card HomeCard1">
                             <div className="card-content homeText">

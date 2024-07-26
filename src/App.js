@@ -10,7 +10,7 @@ import VideosPage from './Components/Videos/VideosPage';
 import DealRegistration from './Components/DealRegistration/DealRegistration';
 import Products from './Components/Products/Products';
 import UserProfile from './Components/UserProfile/UserProfile';
-import BecomeAPartner from './Components/BecomePartner/BecomeAPartner';
+import BecomeAPartner from './Components/BecomePartner/BecomeAPartner.js';
 
 function App() {
   return (
