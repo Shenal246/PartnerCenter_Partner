@@ -123,7 +123,7 @@ const DirectorInformation = ({ handleFileChange, forn20FileName }) => (
     <FormField name="directorWhatsapp" label="Director WhatsApp Number" />
     <Grid item xs={12}>
       <Typography variant="body2" sx={{ mt: 1, mb: 1, color: 'red' }}>
-        If FORM 20 is not submitted, validation may take 2 working days.
+        If "FORM 20" is not submitted, validation may take 2 working days.
       </Typography>
       <FileUploadField handleFileChange={handleFileChange} fileName={forn20FileName} label="FORM 20" name="forn20" />
     </Grid>
