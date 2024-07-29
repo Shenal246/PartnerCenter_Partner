@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm, Controller, FormProvider, useFormContext } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Container, Box, TextField, Button, Typography, Stepper, Step, StepLabel, CircularProgress, Grid, MenuItem } from '@mui/material';
+import { Container, Box, TextField, Button, Typography, Stepper, Step, StepLabel, CircularProgress, Grid, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -33,47 +33,66 @@ const validationSchema = [
   }),
 ];
 
-const FormField = ({ name, label, type = 'text', options = [] }) => {
+const FormField = ({ name, label, type = 'text', options = [], currencySelector = false }) => {
   const { control } = useFormContext();
+  const [currency, setCurrency] = useState('LKR');
+
+  const handleCurrencyChange = (event) => {
+    setCurrency(event.target.value);
+  };
+
   return (
-    <Grid item xs={12} md={6}>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field, fieldState }) => (
-          type === 'select' ? (
-            <TextField
-              select
-              {...field}
-              label={label}
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              sx={{ height: 45 }}
-            >
-              {options.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-          ) : (
-            <TextField
-              {...field}
-              label={label}
-              type={type}
-              variant="outlined"
-              fullWidth
-              margin="dense"
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              sx={{ height: 45 }}
-            />
-          )
-        )}
-      />
+    <Grid item xs={12} md={6} container spacing={1}>
+      {currencySelector && (
+        <Grid item xs={4}>
+          <FormControl variant="outlined" fullWidth margin="dense">
+            <InputLabel>Currency</InputLabel>
+            <Select value={currency} onChange={handleCurrencyChange} label="Currency">
+              <MenuItem value="LKR">LKR</MenuItem>
+              <MenuItem value="USD">USD</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+      )}
+      <Grid item xs={currencySelector ? 8 : 12}>
+        <Controller
+          name={name}
+          control={control}
+          render={({ field, fieldState }) => (
+            type === 'select' ? (
+              <TextField
+                select
+                {...field}
+                label={label}
+                variant="outlined"
+                fullWidth
+                margin="dense"
+                error={!!fieldState.error}
+                helperText={fieldState.error?.message}
+                sx={{ height: 45 }}
+              >
+                {options.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            ) : (
+              <TextField
+                {...field}
+                label={label}
+                type={type}
+                variant="outlined"
+                fullWidth
+                margin="dense"
+                error={!!fieldState.error}
+                helperText={fieldState.error?.message}
+                sx={{ height: 45 }}
+              />
+            )
+          )}
+        />
+      </Grid>
     </Grid>
   );
 };
@@ -96,7 +115,7 @@ const ProductSection = () => {
   ];
 
   const typeOptions = [
-    { value: 'type1', label: 'New Deal' },
+    { value: 'type1', label: 'New Business' },
     { value: 'type2', label: 'Renewal' },
     // Add more types as needed
   ];
@@ -105,7 +124,7 @@ const ProductSection = () => {
     <Grid container spacing={2}>
       <FormField name="selectProducts" label="Select Products" type="select" options={productOptions} />
       <FormField name="closeTimeline" label="Close Timeline" />
-      <FormField name="budget" label="Budget" />
+      <FormField name="budget" label="Budget" currencySelector />
       <FormField name="type" label="Type" type="select" options={typeOptions} />
     </Grid>
   );
